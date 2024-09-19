@@ -492,7 +492,7 @@ for whitelist_line in whitelist_auto_lines:
 # 合并所有对象中的行文本（去重，排序后拼接）
 # ["奥运频道,#genre#"] + sort_data(Olympics_2024_Paris_dictionary,set(correct_name_data(corrections_name,Olympics_2024_Paris_lines))) + ['\n'] + \
 version=datetime.now().strftime("%Y%m%d-%H-%M-%S")+",url"
-all_lines =  ["更新时间,#genre#"] +[version] + ['\n'] +\
+all_lines =  ["🐯更新时间🐯,#genre#"] +[version] + ['\n'] +\
              ["💓专享源🅰️,#genre#"] + read_txt_to_array('主频道/♪专享源①.txt') + ['\n'] + \
              ["💓专享源🅱️,#genre#"] + read_txt_to_array('主频道/♪专享源②.txt') + ['\n'] + \
              ["💓专享央视,#genre#"] + read_txt_to_array('主频道/♪优质央视.txt') + ['\n'] + \
@@ -585,7 +585,7 @@ def get_logo_by_channel_name(channel_name):
     return None
 
 #output_text = '#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml,https://epg.112114.xyz/pp.xml.gz,https://assets.livednow.com/epg.xml"\n'
-output_text = '#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml"\n'
+output_text = '#EXTM3U x-tvg-url="https://mirror.ghproxy.com/raw.githubusercontent.com/qq49371114/tviptv/Files/EPG.xml,https://live.fanmingming.com/e.xml"\n'
 
 with open(output_file, "r", encoding='utf-8') as file:
     input_text = file.read()
