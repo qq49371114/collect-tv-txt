@@ -585,7 +585,10 @@ def get_logo_by_channel_name(channel_name):
     return None
 
 #output_text = '#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml,https://epg.112114.xyz/pp.xml.gz,https://assets.livednow.com/epg.xml"\n'
-output_text = '#EXTM3U x-tvg-url="https://mirror.ghproxy.com/raw.githubusercontent.com/qq49371114/tviptv/Files/EPG.xml"\n'
+#output_text = '#EXTM3U x-tvg-url="https://mirror.ghproxy.com/raw.githubusercontent.com/qq49371114/tviptv/Files/EPG.xml"\n'
+
+output_text = '#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml"\n'
+
 
 with open(output_file, "r", encoding='utf-8') as file:
     input_text = file.read()
