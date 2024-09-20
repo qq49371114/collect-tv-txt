@@ -314,6 +314,7 @@ if __name__ == "__main__":
         'http://gg.gg/cctvgg',   # 【2024-08-10】
         'https://2883.kstore.space/%E2%91%A0%E7%8C%ABTV%E7%BA%BF%E8%B7%AF',   # 【2024-09-10】
         'https://gitlab.com/p2v5/wangtv/-/raw/main/wang-tvlive.txt'
+        'https://raw.githubusercontent.com/zwc456baby/iptv_alive/master/live.txt',   # 【2024-09-20】
         #'',
         #''
     ]
