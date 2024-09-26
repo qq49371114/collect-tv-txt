@@ -308,8 +308,13 @@ def process_channel_line(line):
 def process_url(url):
     try:
         other_lines.append("◆◆◆　"+url)  # 存入other_lines便于check 2024-08-02 10:41
+        
+        # 创建一个请求对象并添加自定义header
+        req = urllib.request.Request(url)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3')
+
         # 打开URL并读取内容
-        with urllib.request.urlopen(url) as response:
+        with urllib.request.urlopen(req) as response:
             # 以二进制方式读取数据
             data = response.read()
             # 将二进制数据解码为字符串
@@ -584,10 +589,7 @@ def get_logo_by_channel_name(channel_name):
     return None
 
 #output_text = '#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml,https://epg.112114.xyz/pp.xml.gz,https://assets.livednow.com/epg.xml"\n'
-#output_text = '#EXTM3U x-tvg-url="https://mirror.ghproxy.com/raw.githubusercontent.com/qq49371114/tviptv/Files/EPG.xml"\n'
-
 output_text = '#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml"\n'
-
 
 with open(output_file, "r", encoding='utf-8') as file:
     input_text = file.read()
