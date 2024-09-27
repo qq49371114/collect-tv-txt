@@ -1,12 +1,12 @@
-name: 'Daily-free Job'
+name: 'Daily Job(freetv)'
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # 每天UTC时间00:00运行
+    - cron: '0 4 * * *'  # 每天UTC时间04:00运行
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Environment to deploy to'
+        description: 'Daily Job(freetv)'
         required: true
         default: 'production'
 
@@ -28,35 +28,22 @@ jobs:
         python -m pip install --upgrade pip
         
     - name: Run Python script
-      run: python main.py
-      
-    - name: Upload generated files
-      uses: actions/upload-artifact@v4
-      with:
-        name: generated-files
-        path: |
-          merged_output.txt
-          others_output.txt
+      run: python assets/freetv/freetv.py
           
     - name: Commit changes
       run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git add merged_output.txt
-          git add merged_output.m3u
-          git add others_output.txt
-          git commit -m ":tada:  AutoUpdate $(date +'%Y%m%d')"
+          git add assets/freetv/freetv_output.txt
+          git commit -m ":tv:  (Freetv)AutoUpdate $(date +'%Y%m%d')"
 
           current_datetime=$(date +"%Y%m%d_%H%M%S")
-          cp merged_output.txt history/"${current_datetime}_merged_output.txt"
-          cp others_output.txt history/"${current_datetime}_others_output.txt"
-          git add history/"${current_datetime}_merged_output.txt"
-          git add history/"${current_datetime}_others_output.txt"
-          git commit -m "Archive file with timestamp"
+          cp assets/freetv/freetv_output.txt history/freetv/"${current_datetime}_freetv_output.txt"
+          git add history/freetv/"${current_datetime}_freetv_output.txt"
+          git commit -m "(freetv)Archive file with timestamp"
           
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
     
-        
