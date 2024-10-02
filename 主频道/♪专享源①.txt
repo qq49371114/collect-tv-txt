@@ -1,5 +1,32 @@
 📹️直播中国,https://gcalic.v.myalicdn.com/gc/wgw05_1/index.m3u8?contentid=2820180516001
 🐼直播熊猫🥇,https://gcwbndali.v.myalicdn.com/gcwbnd/ipanda1000_2/index.m3u8
+🐼熊猫频道1,https://gcwbndks.v.kcdnvip.com/gcwbnd/ipanda1000_2/index.m3u8
+🐼熊猫频道2,https://gcwbndks.v.kcdnvip.com/gcwbnd/xiongmao01_2/index.m3u8
+🐼熊猫频道3,https://gcwbndks.v.kcdnvip.com/gcwbnd/xiongmao03_2/index.m3u8
+🐼熊猫频道4,http://gcalic.v.myalicdn.com/gc/ipanda_1td/index.m3u8
+🐼都江堰青青,http://gcalic.v.myalicdn.com/gc/xiongmao20_1/index.m3u8
+🐼都江堰妃妃,http://gcalic.v.myalicdn.com/gc/xiongmao13_1/index.m3u8
+🐼都江堰娅祥,http://gcalic.v.myalicdn.com/gc/xiongmao15_1/index.m3u8
+🐼都江堰瑞瑞,http://gcalic.v.myalicdn.com/gc/xiongmao11_1/index.m3u8
+🐼都江堰英英,http://gcalic.v.myalicdn.com/gc/xiongmao16_1/index.m3u8
+🐼都江堰壹壹,http://gcalic.v.myalicdn.com/gc/xiongmao14_1/index.m3u8
+🐼都江堰玖玖,http://gcalic.v.myalicdn.com/gc/xiongmao14_1/index.m3u8
+🐼都江堰水秀,http://gcalic.v.myalicdn.com/gc/xiongmao12_1/index.m3u8
+🐼都江堰高清,http://gcalic.v.myalicdn.com/gc/ipanda1000_1td/index.m3u8
+🐼怡然②,http://gcalic.v.myalicdn.com/gc/xiongmao18_1/index.m3u8
+🐼基地幼年园①,http://gcalic.v.myalicdn.com/gc/xiongmao03_1/index.m3u8
+🐼基地幼年园②,http://gcalic.v.myalicdn.com/gc/xiongmao04_1/index.m3u8
+🐼基地母子园①,http://gcalic.v.myalicdn.com/gc/xiongmao07_1/index.m3u8
+🐼基地幼儿园①,http://gcalic.v.myalicdn.com/gc/xiongmao05_1/index.m3u8
+🐼基地幼儿园②,http://gcalic.v.myalicdn.com/gc/xiongmao06_1/index.m3u8
+🐼基地成年园①,http://gcalic.v.myalicdn.com/gc/xiongmao01_1/index.m3u8
+🐼基地成年园②,http://gcalic.v.myalicdn.com/gc/xiongmao02_1/index.m3u8
+🐼基地别墅①,http://gcalic.v.myalicdn.com/gc/xiongmao09_1/index.m3u8
+🐼基地别墅②,http://gcalic.v.myalicdn.com/gc/xiongmao10_1/index.m3u8
+🐼大丰麋鹿,http://gcalic.v.myalicdn.com/gc/xiongmao23_1/index.m3u8
+🐼白马雪山,http://gcalic.v.myalicdn.com/gc/xiongmao24_1/index.m3u8
+🐼成都高清,http://gcalic.v.myalicdn.com/gc/ipanda_1td/index.m3u8
+
 NEWTV超级电影,http://gslbservzqhsw.itv.cmvideo.cn/1000000003000012426/1.m3u8?channel-id=ystenlive&Contentid=1000000003000012426&livemode=1&stbId=3
 NEWTV超级电影,http://[2409:8087:5e00:24::1e]:6060/000000001000/1000000003000012426/
 NEWTV超级电影,http://[2409:8087:1a01:df::7005]:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225717/index.m3u8
