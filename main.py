@@ -583,9 +583,13 @@ all_lines =  ["更新时间,#genre#"] +[version]  + ['\n'] +\
              ["❤️与凤行,#genre#"] + read_txt_to_array('主频道/特供频道/♪与凤行.txt')  + ['\n'] + \
              ["❤️以家人之名,#genre#"] + read_txt_to_array('主频道/特供频道/♪以家人之名.txt')
 
-##  custom定制
- custom_lines_zhang =  ["更新时间,#genre#"] +[version] + ['\n'] +\
+#   custom定制
+ custom_lines_zhang =  ["9+9成人_9527,#genre#"] +[version] + ['\n'] +\
              ["9+9成人_9527,#genre#"] + sort_data(gat_dictionary,set(correct_name_data(corrections_name,gat_lines))) + ['\n'] 
+
+# # custom定制
+# custom_lines_zhang =  ["更新时间,#genre#"] +[version] + ['\n'] +\
+#             ["港澳台,#genre#"] + sort_data(gat_dictionary,set(correct_name_data(corrections_name,gat_lines))) + ['\n'] 
 
 
 
