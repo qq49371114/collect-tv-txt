@@ -531,7 +531,7 @@ all_lines =  ["更新时间,#genre#"] +[version]  + ['\n'] +\
              ["💓儿童专享,#genre#"] + read_txt_to_array('主频道/♪儿童专享.txt') + ['\n'] + \
              ["💓咪咕直播,#genre#"] + read_txt_to_array('主频道/♪咪咕直播.txt') + ['\n'] + \
              ["💓裸眼3D,#genre#"] + read_txt_to_array('主频道/裸眼3D.txt') + ['\n'] + \
-             ["🌐央视频道,#genre#"] + sort_data(ys_dictionary,set(correct_name_data(corrections_name,ys_lines))) + ['\n'] + \
+             
              ["📡卫视频道,#genre#"] + sort_data(ws_dictionary,set(correct_name_data(corrections_name,ws_lines))) + ['\n'] + \
              ["上海频道,#genre#"] + sort_data(sh_dictionary,set(correct_name_data(corrections_name,sh_lines))) + ['\n'] + \
              ["体育频道,#genre#"] + sort_data(ty_dictionary,set(correct_name_data(corrections_name,ty_lines))) + ['\n'] + \
@@ -584,9 +584,9 @@ all_lines =  ["更新时间,#genre#"] +[version]  + ['\n'] +\
              ["❤️与凤行,#genre#"] + read_txt_to_array('主频道/特供频道/♪与凤行.txt')  + ['\n'] + \
              ["❤️以家人之名,#genre#"] + read_txt_to_array('主频道/特供频道/♪以家人之名.txt')
 
-# # custom定制
-# custom_lines_zhang =  ["更新时间,#genre#"] +[version] + ['\n'] +\
-#             ["港澳台,#genre#"] + sort_data(gat_dictionary,set(correct_name_data(corrections_name,gat_lines))) + ['\n'] 
+##  custom定制
+ custom_lines_zhang =  ["更新时间,#genre#"] +[version] + ['\n'] +\
+             ["9+9成人_9527,#genre#"] + sort_data(gat_dictionary,set(correct_name_data(corrections_name,gat_lines))) + ['\n'] 
 
 
 
@@ -595,8 +595,8 @@ output_file = "merged_output.txt"
 output_file_simple = "merged_output_simple.txt"
 others_file = "others_output.txt"
 
-# # custom定制
-# output_file_custom_zhang = "custom/zhang.txt"
+## custom定制
+ output_file_custom_zhang = "https://fanmingming.com/txt?url=https://666.ewwe.gq/qq49371114/tviptv/Files/Adult.m3u"
 
 try:
     # 瘦身版
@@ -616,10 +616,10 @@ try:
     print(f"Others已保存到文件: {others_file}")
 
     # 定制
-    # with open(output_file_custom_zhang, 'w', encoding='utf-8') as f:
-    #     for line in custom_lines_zhang:
-    #         f.write(line + '\n')
-    # print(f"合并后的文本已保存到文件: {output_file_custom_zhang}")
+     with open(output_file_custom_zhang, 'w', encoding='utf-8') as f:
+         for line in custom_lines_zhang:
+             f.write(line + '\n')
+     print(f"合并后的文本已保存到文件: {output_file_custom_zhang}")
 
 except Exception as e:
     print(f"保存文件时发生错误：{e}")
