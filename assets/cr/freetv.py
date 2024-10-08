@@ -19,7 +19,7 @@ def load_modify_name(filename):
     return corrections
 
 #读取修改字典文件
-rename_dic = load_modify_name('assets/freetv/freetv_rename.txt')
+rename_dic = load_modify_name('assets/cr/freetv_rename.txt')
 
 #纠错频道名称
 def rename_channel(corrections, data):
@@ -86,9 +86,9 @@ def process_url(url):
 
 
 #读取文本
-freetv_dictionary=read_txt_to_array('assets/freetv/freetvlist.txt')  #all
-freetv_dictionary_cctv=read_txt_to_array('assets/freetv/freetvlist_cctv.txt')   #二次分发cctv，单独存
-freetv_dictionary_18=read_txt_to_array('assets/freetv/freetvlist_ws.txt')   #二次分发18，单独存
+freetv_dictionary=read_txt_to_array('assets/cr/freetvlist.txt')  #all
+freetv_dictionary_cctv=read_txt_to_array('assets/cr/freetvlist_cctv.txt')   #二次分发cctv，单独存
+freetv_dictionary_18=read_txt_to_array('assets/cr/freetvlist_ws.txt')   #二次分发18，单独存
 
 freetv_cctv_lines = []
 freetv_18_lines = []
@@ -114,7 +114,7 @@ output_lines =  ["更新时间,#genre#"] +[version] + ['\n'] +\
              ["freetv,#genre#"] + sorted(set(freetv_lines_renamed))
 
 # 将合并后的文本写入文件：全集
-output_file = "assets/freetv/freetv_output.txt"
+output_file = "assets/cr/freetv_output.txt"
 try:
     with open(output_file, 'w', encoding='utf-8') as f:
         for line in output_lines:
@@ -156,9 +156,9 @@ output_lines_other =  ["更新时间,#genre#"] +[version] + ['\n'] +\
              ["freetv_other,#genre#"] + sorted(set(freetv_other_lines))
 
 # 再次写入文件：分开
-output_file_cctv = "assets/freetv/freetv_output_cctv.txt"
-output_file_ws = "assets/freetv/freetv_output_18.txt"
-output_file_other = "assets/freetv/freetv_output_other.txt"
+output_file_cctv = "assets/cr/freetv_output_cctv.txt"
+output_file_ws = "assets/cr/freetv_output_18.txt"
+output_file_other = "assets/cr/freetv_output_other.txt"
 try:
     with open(output_file_cctv, 'w', encoding='utf-8') as f:
         for line in output_lines_cctv:
