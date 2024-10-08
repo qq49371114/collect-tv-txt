@@ -41,7 +41,7 @@ jobs:
           git commit -m ":tv:  (Freetv)AutoUpdate $(date +'%Y%m%d')"
 
           current_datetime=$(date +"%Y%m%d_%H%M%S")
-          cp assets/cr/freetv_output.txt history/freetv/"${current_datetime}_freetv_output.txt"
+          cp assets/cr/freetv_output.txt history/cr/"${current_datetime}_freetv_output.txt"
           git add history/cr/"${current_datetime}_freetv_output.txt"
           git commit -m "(freetv)Archive file with timestamp"
           
