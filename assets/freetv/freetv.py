@@ -143,7 +143,8 @@ for line in freetv_lines_renamed:
         if channel_name in freetv_dictionary_cctv: #央视频道
             freetv_cctv_lines.append(line.strip())
         if channel_name in freetv_dictionary_ws: #卫视频道
-        elif channel_name in freetv_dictionary_18: #18频道            freetv_18_lines.append(line.strip())
+freetv_cctv_lines.append(line.strip())
+        elif channel_name in freetv_dictionary_18: #18频道         freetv_18_lines.append(line.strip())
         else:
             freetv_other_lines.append(line.strip())
 
