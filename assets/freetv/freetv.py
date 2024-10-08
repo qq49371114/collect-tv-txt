@@ -89,14 +89,19 @@ def process_url(url):
 freetv_dictionary=read_txt_to_array('assets/freetv/freetvlist.txt')  #all
 freetv_dictionary_cctv=read_txt_to_array('assets/freetv/freetvlist_cctv.txt')   #二次分发cctv，单独存
 freetv_dictionary_ws=read_txt_to_array('assets/freetv/freetvlist_ws.txt')   #二次分发卫视，单独存
+freetv_dictionary_18=read_txt_to_array('assets/freetv/freetvlist_18.txt')   #二次分发18，单独存
 
 freetv_cctv_lines = []
 freetv_ws_lines = []
+freetv_18_lines = []
 freetv_other_lines = []
 
 
 # 定义
-urls = ["https://freetv.fun/test_channels_original_new.txt"]
+urls = ["
+https://freetv.fun/test_channels_original_new.txt",
+"https://fanmingming.com/txt?url=http://adultiptv.net/chs.m3u"
+]
 
 # 处理
 for url in urls:
@@ -138,23 +143,27 @@ for line in freetv_lines_renamed:
         if channel_name in freetv_dictionary_cctv: #央视频道
             freetv_cctv_lines.append(line.strip())
         elif channel_name in freetv_dictionary_ws: #卫视频道
-            freetv_ws_lines.append(line.strip())
+        elif channel_name in freetv_dictionary_18: #18频道            freetv_18_lines.append(line.strip())
         else:
             freetv_other_lines.append(line.strip())
 
 # freetv_cctv
 output_lines_cctv =  ["更新时间,#genre#"] +[version] + ['\n'] +\
-             ["freetv_cctv,#genre#"] + sorted(set(freetv_cctv_lines))
+             ["freetv-cctv,#genre#"] + sorted(set(freetv_cctv_lines))
 # freetv_ws
 output_lines_ws =  ["更新时间,#genre#"] +[version] + ['\n'] +\
-             ["freetv_ws,#genre#"] + sorted(set(freetv_ws_lines))
+             ["freetv-ws,#genre#"] + sorted(set(freetv_ws_lines))
+# freetv_18
+output_lines_18 =  ["更新时间,#genre#"] +[version] + ['\n'] +\
+          ["freetv18_9527,#genre#"] + sorted(set(freetv_18_lines))
 # freetv_other
 output_lines_other =  ["更新时间,#genre#"] +[version] + ['\n'] +\
-             ["freetv_other,#genre#"] + sorted(set(freetv_other_lines))
+             ["freetv-other,#genre#"] + sorted(set(freetv_other_lines))
 
 # 再次写入文件：分开
 output_file_cctv = "assets/freetv/freetv_output_cctv.txt"
 output_file_ws = "assets/freetv/freetv_output_ws.txt"
+output_file_18 = "assets/freetv/freetv_output_18.txt"
 output_file_other = "assets/freetv/freetv_output_other.txt"
 try:
     with open(output_file_cctv, 'w', encoding='utf-8') as f:
@@ -166,6 +175,11 @@ try:
         for line in output_lines_ws:
             f.write(line + '\n')
     print(f"已保存到文件: {output_file_ws}")
+
+    with open(output_file_18, 'w', encoding='utf-8') as f:
+        for line in output_lines_18:
+            f.write(line + '\n')
+    print(f"已保存到文件: {output_file_18}")
     
     with open(output_file_other, 'w', encoding='utf-8') as f:
         for line in output_lines_other:
