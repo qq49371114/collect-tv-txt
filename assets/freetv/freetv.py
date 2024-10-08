@@ -140,11 +140,14 @@ for line in freetv_lines_renamed:
         channel_address=clean_url(line.split(',')[1].strip())  #把URL中$之后的内容都去掉
         line=channel_name+","+channel_address #重新组织line
 
-        if channel_name in freetv_dictionary_cctv: #央视频道 freetv_cctv_lines.append(line.strip())
+        if channel_name in freetv_dictionary_cctv: #央视频道 
+
+freetv_cctv_lines.append(line.strip())
 
    
 
       elif channel_name in freetv_dictionary_18: #18频道
+
 freetv_18_lines.append(line.strip())
 
         else:          freetv_other_lines.append(line.strip())
