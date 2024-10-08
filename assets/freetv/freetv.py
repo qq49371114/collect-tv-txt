@@ -98,8 +98,8 @@ freetv_other_lines = []
 
 
 # 定义
-urls = ["
-https://freetv.fun/test_channels_original_new.txt",
+urls=[
+"https://freetv.fun/test_channels_original_new.txt",
 "https://fanmingming.com/txt?url=http://adultiptv.net/chs.m3u"
 ]
 
