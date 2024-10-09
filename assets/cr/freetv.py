@@ -105,6 +105,61 @@ urls=[
 for url in urls:
     print(f"处理URL: {url}")
     process_url(url)
+    # 准备支持m3u格式
+def get_url_file_extension(url):
+    # 解析URL
+    parsed_url = urlparse(url)
+    # 获取路径部分
+    path = parsed_url.path
+    # 提取文件扩展名
+    extension = os.path.splitext(path)[1]
+    return extension
+
+def convert_m3u_to_txt(m3u_content):
+    # 分行处理
+    lines = m3u_content.split('\n')
+    
+    # 用于存储结果的列表
+    txt_lines = []
+    
+    # 临时变量用于存储频道名称
+    channel_name = ""
+    
+    for line in lines:
+        # 过滤掉 #EXTM3U 开头的行
+        if line.startswith("#EXTM3U"):
+            continue
+        # 处理 #EXTINF 开头的行
+        if line.startswith("#EXTINF"):
+            # 获取频道名称（假设频道名称在引号后）
+            channel_name = line.split(',')[-1].strip()
+        # 处理 URL 行
+        elif line.startswith("http") or line.startswith("rtmp") or line.startswith("p3p") :
+            txt_lines.append(f"{channel_name},{line.strip()}")
+    
+    # 将结果合并成一个字符串，以换行符分隔
+    return '\n'.join(txt_lines)
+
+# 在list是否已经存在url 2024-07-22 11:18
+def check_url_existence(data_list, url):
+    """
+    Check if a given URL exists in a list of data.
+
+    :param data_list: List of strings containing the data
+    :param url: The URL to check for existence
+    :return: True if the URL exists in the list, otherwise False
+    """
+    # Extract URLs from the data list
+    urls = [item.split(',')[1] for item in data_list]
+    return url not in urls #如果不存在则返回true，需要
+
+# 处理带$的URL，把$之后的内容都去掉（包括$也去掉） 【2024-08-08 22:29:11】
+def clean_url(url):
+    last_dollar_index = url.rfind('$')  # 安全起见找最后一个$处理
+    if last_dollar_index != -1:
+        return url[:last_dollar_index]
+    return url
+
 
 
 # freetv_all
