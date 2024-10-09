@@ -98,7 +98,7 @@ freetv_other_lines = []
 # 定义
 urls=[
 "https://freetv.fun/test_channels_original_new.txt",
-"https://fanmingming.com/txt?url=http://adultiptv.net/chs.m3u"
+"http://adultiptv.net/chs.m3u"
 ]
 
 # 处理
