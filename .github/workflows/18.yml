@@ -37,7 +37,7 @@ jobs:
           git add assets/cr/freetv_output.txt
           git add assets/cr/freetv_output_cctv.txt
           git add assets/cr/freetv_output_18.txt
-          git add assets/cr/freetv_output_other.txt
+          
           git commit -m ":tv:  (Freetv)AutoUpdate $(date +'%Y%m%d')"
 
           current_datetime=$(date +"%Y%m%d_%H%M%S")
