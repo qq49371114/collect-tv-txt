@@ -88,7 +88,7 @@ def process_url(url):
 #读取文本
 freetv_dictionary=read_txt_to_array('assets/cr/freetvlist.txt')  #all
 freetv_dictionary_cctv=read_txt_to_array('assets/cr/freetvlist_cctv.txt')   #二次分发cctv，单独存
-freetv_dictionary_18=read_txt_to_array('assets/cr/freetvlist_ws.txt')   #二次分发18，单独存
+freetv_dictionary_18=read_txt_to_array('assets/cr/freetvlist_18.txt')   #二次分发18，单独存
 
 freetv_cctv_lines = []
 freetv_18_lines = []
@@ -212,7 +212,7 @@ output_lines_other =  ["更新时间,#genre#"] +[version] + ['\n'] +\
 
 # 再次写入文件：分开
 output_file_cctv = "assets/cr/freetv_output_cctv.txt"
-output_file_ws = "assets/cr/freetv_output_18.txt"
+output_file_18 = "assets/cr/freetv_output_18.txt"
 output_file_other = "assets/cr/freetv_output_other.txt"
 try:
     with open(output_file_cctv, 'w', encoding='utf-8') as f:
