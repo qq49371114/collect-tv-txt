@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 import re #正则
 import os
 from datetime import datetime
-import random
+import secrets
 
 # 执行开始时间
 timestart = datetime.now()
@@ -313,7 +313,7 @@ def get_random_user_agent():
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36",
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36",
     ]
-    return random.choice(USER_AGENTS)
+    return secrets.choice(USER_AGENTS)
 
 def process_url(url):
     try:
