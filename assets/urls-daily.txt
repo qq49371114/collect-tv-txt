@@ -1,4 +1,6 @@
 http://rihou.cc:555/gggg.nzk
+http://rihou.cc:567/gggg.nzk
+https://2883.kstore.vip/gggg.nzk
 http://ttkx.live:55/lib/kx2024.txt
 https://2912.kstore.space/520.txt
 https://gitlab.com/tvtg/vip/-/raw/main/log.txt
@@ -6,7 +8,6 @@ https://cdn05042023.gitlink.org.cn/api/v1/repos/xuanbei/tv/raw/live.txt
 https://d.kstore.space/download/7395/xiaohei.txt
 http://117.72.68.25:9230/latest.txt
 http://home.jundie.top:81/Cat/tv/live.txt
-http://iptv.yjxfz.com/tv/getVideoConfigByPath/txt/96I2709JD480802I/2/heightlow/y/ipv46
 https://raw.githubusercontent.com/BP3388/BP001.github.io/main/tivi.list
 https://raw.githubusercontent.com/frxz751113/IPTVzb1/main/%E7%BB%BC%E5%90%88%E6%BA%90.txt
 https://raw.githubusercontent.com/YueChan/Live/main/APTV.m3u
@@ -21,7 +22,6 @@ https://m3u.ibert.me/txt/y_g.txt
 https://m3u.ibert.me/txt/j_home.txt
 https://raw.githubusercontent.com/gaotianliuyun/gao/master/list.txt
 https://gitee.com/xxy002/zhiboyuan/raw/master/zby.txt
-https://raw.githubusercontent.com/mlvjfchen/TV/main/iptv_list.txt
 https://raw.githubusercontent.com/fenxp/iptv/main/live/tvlive.txt
 https://raw.githubusercontent.com/zwc456baby/iptv_alive/master/live.txt
 https://gitlab.com/p2v5/wangtv/-/raw/main/lunbo.txt
@@ -35,7 +35,10 @@ http://xhztv.top/v6.txt
 https://tvkj.top/tvlive.txt
 https://raw.githubusercontent.com/junge3333/juds6/main/yszb1.txt
 https://raw.githubusercontent.com/zzmaze/iptv/main/iptv.txt
-https://raw.githubusercontent.com/xxoo-qx/IPTV/main/LIVE.txt
 http://wp.wadg.pro/down.php/d7b52d125998d00e2d2339bac6abd2b5.txt
 https://raw.githubusercontent.com/maitel2020/iptv-self-use/main/iptv.txt
 https://raw.githubusercontent.com/kimwang1978/TV/master/output/result.txt
+https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/refs/heads/main/assets/freetv/freetv_output_other.txt
+http://1805842a.123nat.com:66/agent/2.txt
+https://gongdian.top/tv/gongdian.txt
+https://gitea.moe/Fathers/EkfkgH/raw/branch/main/yyfug.txt
