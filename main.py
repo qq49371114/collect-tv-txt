@@ -2,7 +2,7 @@ import urllib.request
 from urllib.parse import urlparse
 import re #正则
 import os
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import random
 
 # 执行开始时间
@@ -98,6 +98,7 @@ Olympics_2024_Paris_lines = [] #Paris_2024_Olympics  Olympics_2024_Paris ADD 202
 # favorite_lines = []
 
 other_lines = []
+other_lines_url = [] # 为降低other文件大小，剔除重复url添加
 
 def process_name_string(input_str):
     parts = input_str.split(',')
@@ -193,7 +194,7 @@ def clean_url(url):
 
 # 分发直播源，归类，把这部分从process_url剥离出来，为以后加入whitelist源清单做准备。
 def process_channel_line(line):
-    if  "#genre#" not in line and "," in line and "://" in line:
+    if  "#genre#" not in line and "#EXTINF:" not in line and "," in line and "://" in line:
         channel_name=line.split(',')[0].strip()
         channel_address=clean_url(line.split(',')[1].strip())  #把URL中$之后的内容都去掉
         line=channel_name+","+channel_address #重新组织line
@@ -303,7 +304,10 @@ def process_channel_line(line):
             elif channel_name in mtv_dictionary and check_url_existence(mtv_lines, channel_address):  #MTV
                 mtv_lines.append(process_name_string(line.strip()))
             else:
-                other_lines.append(line.strip())
+                if channel_address not in other_lines_url:
+                    other_lines_url.append(channel_address)   #记录已加url
+                    other_lines.append(line.strip())
+
 
 # 随机获取User-Agent,留着将来备用
 def get_random_user_agent():
@@ -465,8 +469,9 @@ def sort_data(order, data):
 urls = read_txt_to_array('assets/urls-daily.txt')
 # 处理
 for url in urls:
-    print(f"处理URL: {url}")
-    process_url(url)
+    if url.startswith("http"):
+        print(f"处理URL: {url}")
+        process_url(url)
 
 
 
@@ -502,9 +507,16 @@ for whitelist_line in whitelist_auto_lines:
         if response_time < 2000:  #2s以内的高响应源
             process_channel_line(",".join(whitelist_parts[1:]))
 
-about_video1="https://liuliuliu.tv/api/channels/1997/stream"
-about_video2="https://liuliuliu.tv/api/channels/233/stream"
-version=datetime.now().strftime("%Y%m%d-%H-%M-%S")+","+about_video1
+# 获取当前的 UTC 时间
+utc_time = datetime.now(timezone.utc)
+# 北京时间
+beijing_time = utc_time + timedelta(hours=8)
+# 格式化为所需的格式
+formatted_time = beijing_time.strftime("%Y%m%d %H:%M:%S")
+
+about_video1="http://159.75.85.63:35455/douyu/8814650"
+about_video2="http://120.77.28.4:8648/douyu.php?id=2935323"
+version=formatted_time+","+about_video1
 about="关于本源,"+about_video2
 # 瘦身版
 all_lines_simple =  ["🐯更新时间🐯,#genre#"] +[version] +[about] + ['\n'] +\
@@ -516,7 +528,8 @@ all_lines_simple =  ["🐯更新时间🐯,#genre#"] +[version] +[about] + ['\n'
              ["💓优质个源,#genre#"] + read_txt_to_array('主频道/♪优质源.txt') + ['\n'] + \
              ["💓儿童专享,#genre#"] + read_txt_to_array('主频道/♪儿童专享.txt') + ['\n'] + \
              ["💓咪咕直播,#genre#"] + read_txt_to_array('主频道/♪咪咕直播.txt') + ['\n'] + \
-            ["💓9+9成人_9527,#genre#"] + read_txt_to_array('主频道/9+9.txt') + ['\n'] + \
+             ["💓裸眼3D,#genre#"] + read_txt_to_array('主频道/裸眼3D.txt') + ['\n'] + \
+            ["💓9+9成人频道_9527,#genre#"] + read_txt_to_array('主频道/9+9.txt') + ['\n'] + \
              ["☘️湖南频道,#genre#"] + sort_data(hn_dictionary,set(correct_name_data(corrections_name,hn_lines))) + ['\n'] + \
              ["☘️湖北频道,#genre#"] + sort_data(hb_dictionary,set(correct_name_data(corrections_name,hb_lines))) + ['\n'] + \
              ["☘️广东频道,#genre#"] + sort_data(gd_dictionary,set(correct_name_data(corrections_name,gd_lines))) + ['\n'] + \
@@ -674,10 +687,7 @@ def get_logo_by_channel_name(channel_name):
 def make_m3u(txt_file, m3u_file):
     try:
         #output_text = '#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml,https://epg.112114.xyz/pp.xml.gz,https://assets.livednow.com/epg.xml"\n'
-        #output_text = '#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml"\n'
-        output_text = '#EXTM3U x-tvg-url="https://mirror.ghproxy.com/raw.githubusercontent.com/qq49371114/tviptv/Files/EPG.xml"\n'
-        
-        
+        output_text = '#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml"\n'
 
         # # 打开txt文件读取
         # with open(txt_file, 'r', encoding='utf-8') as txt:
@@ -751,6 +761,6 @@ print(f"others_output.txt行数: {other_lines_hj} ")
 
 
 #备用1：http://tonkiang.us
-#备用2：https://www.zoomeye.hk
+#备用2：https://www.zoomeye.hk,https://www.shodan.io
 #备用3：(BlackList检测对象)http,rtmp,p3p,rtp（rtsp，p2p）
 
