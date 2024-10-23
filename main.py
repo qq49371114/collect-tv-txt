@@ -192,10 +192,24 @@ def clean_url(url):
         return url[:last_dollar_index]
     return url
 
+# 添加channel_name前剔除部分特定字符
+removal_list = ["_电信", "电信", "高清", "频道", "（HD）", "-HD"]
+def clean_channel_name(channel_name, removal_list):
+    for item in removal_list:
+        channel_name = channel_name.replace(item, "")
+
+    # 检查并移除末尾的 'HD'
+    if channel_name.endswith("HD"):
+        channel_name = channel_name[:-2]  # 去掉最后两个字符 "HD"
+    
+    return channel_name
+
 # 分发直播源，归类，把这部分从process_url剥离出来，为以后加入whitelist源清单做准备。
 def process_channel_line(line):
     if  "#genre#" not in line and "#EXTINF:" not in line and "," in line and "://" in line:
         channel_name=line.split(',')[0].strip()
+        channel_name= clean_channel_name(channel_name, removal_list)  #分发前清理channel_name中特定字符
+
         channel_address=clean_url(line.split(',')[1].strip())  #把URL中$之后的内容都去掉
         line=channel_name+","+channel_address #重新组织line
 
@@ -473,6 +487,11 @@ for url in urls:
         if "{MMdd}" in url: #特别处理113
             current_date_str = datetime.now().strftime("%m%d")
             url=url.replace("{MMdd}", current_date_str)
+
+        if "{MMdd-1}" in url: #特别处理113
+            yesterday_date_str = (datetime.now() - timedelta(days=1)).strftime("%m%d")
+            url=url.replace("{MMdd-1}", yesterday_date_str)
+            
         print(f"处理URL: {url}")
         process_url(url)
 
@@ -517,10 +536,10 @@ beijing_time = utc_time + timedelta(hours=8)
 # 格式化为所需的格式
 formatted_time = beijing_time.strftime("%Y%m%d %H:%M:%S")
 
-about_video1="http://159.75.85.63:35455/douyu/8814650"
-about_video2="http://120.77.28.4:8648/douyu.php?id=2935323"
+about_video1="https://gitee.com/kabigo/tv/raw/master/assets/about1080p.mp4"
+about_video2="https://gitlab.com/p2v5/wangtv/-/raw/main/about1080p.mp4"
 version=formatted_time+","+about_video1
-about="🐯关于本源🐯遥遥领先专用,"+about_video2
+about="关于本源,"+about_video2
 # 瘦身版
 all_lines_simple =  ["🐯更新时间🐯,#genre#"] +[version] +[about] + ['\n'] +\
              ["💓专享源🅰️,#genre#"] + read_txt_to_array('主频道/♪专享源①.txt') + ['\n'] + \
@@ -528,6 +547,7 @@ all_lines_simple =  ["🐯更新时间🐯,#genre#"] +[version] +[about] + ['\n'
              ["💓专享央视,#genre#"] + read_txt_to_array('主频道/♪优质央视.txt') + ['\n'] + \
              ["💓专享卫视,#genre#"] + read_txt_to_array('主频道/♪优质卫视.txt') + ['\n'] + \
              ["💓港澳台,#genre#"] + read_txt_to_array('主频道/♪港澳台.txt') + ['\n'] + \
+             ["💓电视剧🔁,#genre#"] + read_txt_to_array('主频道/♪电视剧.txt') + ['\n'] + \
              ["💓优质个源,#genre#"] + read_txt_to_array('主频道/♪优质源.txt') + ['\n'] + \
              ["💓儿童专享,#genre#"] + read_txt_to_array('主频道/♪儿童专享.txt') + ['\n'] + \
              ["💓咪咕直播,#genre#"] + read_txt_to_array('主频道/♪咪咕直播.txt') + ['\n'] + \
@@ -549,11 +569,12 @@ all_lines =  ["🐯更新时间🐯,#genre#"] +[version]  +[about] + ['\n'] +\
              ["💓专享央视,#genre#"] + read_txt_to_array('主频道/♪优质央视.txt') + ['\n'] + \
              ["💓专享卫视,#genre#"] + read_txt_to_array('主频道/♪优质卫视.txt') + ['\n'] + \
              ["💓港澳台,#genre#"] + read_txt_to_array('主频道/♪港澳台.txt') + ['\n'] + \
+             ["💓电视剧🔁,#genre#"] + read_txt_to_array('主频道/♪电视剧.txt') + ['\n'] + \
              ["💓优质个源,#genre#"] + read_txt_to_array('主频道/♪优质源.txt') + ['\n'] + \
              ["💓儿童专享,#genre#"] + read_txt_to_array('主频道/♪儿童专享.txt') + ['\n'] + \
              ["💓咪咕直播,#genre#"] + read_txt_to_array('主频道/♪咪咕直播.txt') + ['\n'] + \
              ["💓裸眼3D,#genre#"] + read_txt_to_array('主频道/裸眼3D.txt') + ['\n'] + \
-            ["💓9+9成人频道_9527,#genre#"] + read_txt_to_array('主频道/9+9.txt') + ['\n'] + \
+             ["💓9+9成人频道_9527,#genre#"] + read_txt_to_array('主频道/9+9.txt') + ['\n'] + \
              ["🌐央视频道,#genre#"] + sort_data(ys_dictionary,set(correct_name_data(corrections_name,ys_lines))) + ['\n'] + \
              ["📡卫视频道,#genre#"] + sort_data(ws_dictionary,set(correct_name_data(corrections_name,ws_lines))) + ['\n'] + \
              ["上海频道,#genre#"] + sort_data(sh_dictionary,set(correct_name_data(corrections_name,sh_lines))) + ['\n'] + \
