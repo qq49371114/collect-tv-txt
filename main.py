@@ -555,8 +555,10 @@ about_video1="http://159.75.85.63:35455/douyu/8814650"
 about_video2="http://120.77.28.4:8648/douyu.php?id=2935323"
 version=formatted_time+","+about_video1
 about="🐯关于本源🐯遥遥领先专用,"+about_video2
+
+
 # 瘦身版
-all_lines_simple =  ["🐯更新时间🐯,#genre#"] +[version] +[about] +[daily_mtv]+ ['\n'] +\
+all_lines_simple =  ["🐯更新时间🐯,#genre#"] +[version] +[about] +[daily_mtv]+ ['\n'] +\\
              ["💓专享源🅰️,#genre#"] + read_txt_to_array('主频道/♪专享源①.txt') + ['\n'] + \
              ["💓专享源🅱️,#genre#"] + read_txt_to_array('主频道/♪专享源②.txt') + ['\n'] + \
              ["💓专享央视,#genre#"] + read_txt_to_array('主频道/♪优质央视.txt') + ['\n'] + \
@@ -566,9 +568,9 @@ all_lines_simple =  ["🐯更新时间🐯,#genre#"] +[version] +[about] +[daily
              ["💓优质个源,#genre#"] + read_txt_to_array('主频道/♪优质源.txt') + ['\n'] + \
              ["💓儿童专享,#genre#"] + read_txt_to_array('主频道/♪儿童专享.txt') + ['\n'] + \
              ["💓咪咕直播,#genre#"] + read_txt_to_array('主频道/♪咪咕直播.txt') + ['\n'] + \
-            ["💓裸眼3D,#genre#"] + read_txt_to_array('主频道/裸眼3D.txt') + ['\n'] + \
-            ["💓9+9成人频道_9527,#genre#"] + read_txt_to_array('主频道/9+9.txt') + ['\n'] + \
              ["🔜SPORTS,#genre#"] + read_txt_to_array('主频道/♪sports.txt') + ['\n'] + \
+             ["💓裸眼3D,#genre#"] + read_txt_to_array('主频道/裸眼3D.txt') + ['\n'] + \
+             ["💓9+9成人频道_9527,#genre#"] + read_txt_to_array('主频道/9+9.txt') + ['\n'] + \
              ["☘️湖南频道,#genre#"] + sort_data(hn_dictionary,set(correct_name_data(corrections_name,hn_lines))) + ['\n'] + \
              ["☘️湖北频道,#genre#"] + sort_data(hb_dictionary,set(correct_name_data(corrections_name,hb_lines))) + ['\n'] + \
              ["☘️广东频道,#genre#"] + sort_data(gd_dictionary,set(correct_name_data(corrections_name,gd_lines))) + ['\n'] + \
@@ -590,8 +592,8 @@ all_lines =  ["🐯更新时间🐯,#genre#"] +[version]  +[about] +[daily_mtv] 
              ["💓儿童专享,#genre#"] + read_txt_to_array('主频道/♪儿童专享.txt') + ['\n'] + \
              ["💓咪咕直播,#genre#"] + read_txt_to_array('主频道/♪咪咕直播.txt') + ['\n'] + \
              ["🔜SPORTS,#genre#"] + read_txt_to_array('主频道/♪sports.txt') + ['\n'] + \
-            ["💓裸眼3D,#genre#"] + read_txt_to_array('主频道/裸眼3D.txt') + ['\n'] + \
-            ["💓9+9成人频道_9527,#genre#"] + read_txt_to_array('主频道/9+9.txt') + ['\n'] + \
+             ["💓裸眼3D,#genre#"] + read_txt_to_array('主频道/裸眼3D.txt') + ['\n'] + \
+             ["💓9+9成人频道_9527,#genre#"] + read_txt_to_array('主频道/9+9.txt') + ['\n'] + \
              ["🌐央视频道,#genre#"] + sort_data(ys_dictionary,set(correct_name_data(corrections_name,ys_lines))) + ['\n'] + \
              ["📡卫视频道,#genre#"] + sort_data(ws_dictionary,set(correct_name_data(corrections_name,ws_lines))) + ['\n'] + \
              ["上海频道,#genre#"] + sort_data(sh_dictionary,set(correct_name_data(corrections_name,sh_lines))) + ['\n'] + \
