@@ -4,6 +4,14 @@ import re #正则
 import os
 from datetime import datetime, timedelta, timezone
 import random
+import opencc #简繁转换
+
+#简繁转换
+def traditional_to_simplified(text: str) -> str:
+    # 初始化转换器，"t2s" 表示从繁体转为简体
+    converter = opencc.OpenCC('t2s')
+    simplified_text = converter.convert(text)
+    return simplified_text
 
 # 执行开始时间
 timestart = datetime.now()
@@ -194,7 +202,7 @@ def clean_url(url):
 
 # 添加channel_name前剔除部分特定字符
 removal_list = ["_电信", "电信", "高清", "频道", "（HD）", "-HD","英陆","_ITV",
-                "频陆","备陆","壹陆","贰陆","叁陆","肆陆","伍陆","陆陆","柒陆", "频晴",
+                "频陆","备陆","壹陆","贰陆","叁陆","肆陆","伍陆","陆陆","柒陆", "频晴","频粤",
                 "粤陆", "国陆","肆柒","频英","频特","频国","频壹","频贰","肆贰","频测","咪咕"]
 def clean_channel_name(channel_name, removal_list):
     for item in removal_list:
@@ -211,6 +219,7 @@ def process_channel_line(line):
     if  "#genre#" not in line and "#EXTINF:" not in line and "," in line and "://" in line:
         channel_name=line.split(',')[0].strip()
         channel_name= clean_channel_name(channel_name, removal_list)  #分发前清理channel_name中特定字符
+        channel_name = traditional_to_simplified(channel_name)  #繁转简
 
         channel_address=clean_url(line.split(',')[1].strip())  #把URL中$之后的内容都去掉
         line=channel_name+","+channel_address #重新组织line
@@ -325,7 +334,7 @@ def process_channel_line(line):
                     other_lines.append(line.strip())
 
 
-# 随机获取User-Agent,留着将来备用
+# 随机获取User-Agent,备用
 def get_random_user_agent():
     USER_AGENTS = [
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
@@ -542,7 +551,7 @@ def get_random_url(file_path):
     # 随机返回一个URL
     return random.choice(urls) if urls else None
 
-daily_mtv="今日推歌,"+get_random_url('assets/今日推荐.txt')
+daily_mtv="每日一首,"+get_random_url('assets/今日推荐.txt')
 
 # 获取当前的 UTC 时间
 utc_time = datetime.now(timezone.utc)
@@ -555,20 +564,18 @@ about_video1="http://159.75.85.63:35455/douyu/8814650"
 about_video2="http://120.77.28.4:8648/douyu.php?id=2935323"
 version=formatted_time+","+about_video1
 about="🐯关于本源🐯遥遥领先专用,"+about_video2
-
-
 # 瘦身版
 all_lines_simple =  ["🐯更新时间🐯,#genre#"] +[version] +[about] +[daily_mtv]+ ['\n'] +\
              ["💓专享源🅰️,#genre#"] + read_txt_to_array('主频道/♪专享源①.txt') + ['\n'] + \
              ["💓专享源🅱️,#genre#"] + read_txt_to_array('主频道/♪专享源②.txt') + ['\n'] + \
              ["💓专享央视,#genre#"] + read_txt_to_array('主频道/♪优质央视.txt') + ['\n'] + \
              ["💓专享卫视,#genre#"] + read_txt_to_array('主频道/♪优质卫视.txt') + ['\n'] + \
-             ["💓港澳台,#genre#"] + read_txt_to_array('主频道/♪港澳台.txt') + ['\n'] + \
+             ["💓港澳台📶,#genre#"] + read_txt_to_array('主频道/♪港澳台.txt') + ['\n'] + \
              ["💓电视剧🔁,#genre#"] + read_txt_to_array('主频道/♪电视剧.txt') + ['\n'] + \
              ["💓优质个源,#genre#"] + read_txt_to_array('主频道/♪优质源.txt') + ['\n'] + \
              ["💓儿童专享,#genre#"] + read_txt_to_array('主频道/♪儿童专享.txt') + ['\n'] + \
              ["💓咪咕直播,#genre#"] + read_txt_to_array('主频道/♪咪咕直播.txt') + ['\n'] + \
-             ["🔜SPORTS,#genre#"] + read_txt_to_array('主频道/♪sports.txt') + ['\n'] + \
+             ["🆕SPORTS🏀,#genre#"] + read_txt_to_array('主频道/♪sports.txt') + ['\n'] + \
              ["💓裸眼3D,#genre#"] + read_txt_to_array('主频道/裸眼3D.txt') + ['\n'] + \
              ["💓9+9成人频道_9527,#genre#"] + read_txt_to_array('主频道/9+9.txt') + ['\n'] + \
              ["☘️湖南频道,#genre#"] + sort_data(hn_dictionary,set(correct_name_data(corrections_name,hn_lines))) + ['\n'] + \
@@ -586,12 +593,12 @@ all_lines =  ["🐯更新时间🐯,#genre#"] +[version]  +[about] +[daily_mtv] 
              ["💓专享源🅱️,#genre#"] + read_txt_to_array('主频道/♪专享源②.txt') + ['\n'] + \
              ["💓专享央视,#genre#"] + read_txt_to_array('主频道/♪优质央视.txt') + ['\n'] + \
              ["💓专享卫视,#genre#"] + read_txt_to_array('主频道/♪优质卫视.txt') + ['\n'] + \
-             ["💓港澳台,#genre#"] + read_txt_to_array('主频道/♪港澳台.txt') + ['\n'] + \
+             ["💓港澳台📶,#genre#"] + read_txt_to_array('主频道/♪港澳台.txt') + ['\n'] + \
              ["💓电视剧🔁,#genre#"] + read_txt_to_array('主频道/♪电视剧.txt') + ['\n'] + \
              ["💓优质个源,#genre#"] + read_txt_to_array('主频道/♪优质源.txt') + ['\n'] + \
              ["💓儿童专享,#genre#"] + read_txt_to_array('主频道/♪儿童专享.txt') + ['\n'] + \
              ["💓咪咕直播,#genre#"] + read_txt_to_array('主频道/♪咪咕直播.txt') + ['\n'] + \
-             ["🔜SPORTS,#genre#"] + read_txt_to_array('主频道/♪sports.txt') + ['\n'] + \
+             ["🆕SPORTS🏀,#genre#"] + read_txt_to_array('主频道/♪sports.txt') + ['\n'] + \
              ["💓裸眼3D,#genre#"] + read_txt_to_array('主频道/裸眼3D.txt') + ['\n'] + \
              ["💓9+9成人频道_9527,#genre#"] + read_txt_to_array('主频道/9+9.txt') + ['\n'] + \
              ["🌐央视频道,#genre#"] + sort_data(ys_dictionary,set(correct_name_data(corrections_name,ys_lines))) + ['\n'] + \
