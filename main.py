@@ -4,7 +4,7 @@ import re #正则
 import os
 from datetime import datetime, timedelta, timezone
 import random
-#import opencc #简繁转换
+import opencc #简繁转换
 
 #简繁转换
 def traditional_to_simplified(text: str) -> str:
