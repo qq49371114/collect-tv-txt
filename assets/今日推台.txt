@@ -1,3 +1,1 @@
-[BD]vevo pop,https://stream1.freetv.fun/vevo-pop-2.m3u8
-[BD]california music channel,https://stream1.freetv.fun/california-music-channel-1.m3u8
-[HD]HBO HITS,https://stream1.freetv.fun/hbo-hits-8.ctv
+漫威影院,http://120.77.28.4:8648/douyu.php?id=6140589
