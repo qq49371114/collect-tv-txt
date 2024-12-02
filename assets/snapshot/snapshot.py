@@ -43,7 +43,7 @@ for url in urls:
 
         try:
             # 获取文件内容
-            response = requests.get(url)
+            response = requests.get(url, timeout=60)
             if response.status_code == 200:
                 # 生成带时间戳的文件名
                 timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
