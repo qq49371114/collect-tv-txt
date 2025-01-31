@@ -1,6 +1,6 @@
 import os
-import requests
 from datetime import datetime, timedelta, timezone
+from security import safe_requests
 
 
 #读取文本方法
@@ -43,7 +43,7 @@ for url in urls:
 
         try:
             # 获取文件内容
-            response = requests.get(url)
+            response = safe_requests.get(url)
             if response.status_code == 200:
                 # 生成带时间戳的文件名
                 timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
