@@ -1,7 +1,7 @@
 import re
 import base64
-import requests
 from bs4 import BeautifulSoup
+from security import safe_requests
 
 #[url]=https://fofa.info/result?qbase64={0}&page={1}&page_size=10
 
@@ -34,7 +34,7 @@ search_url += search_txt
 print(f"查询地址 : {search_url}")
 
 # 发送带有头部信息的请求
-response = requests.get(search_url, headers=headers, timeout=30)
+response = safe_requests.get(search_url, headers=headers, timeout=30)
 response.raise_for_status()  # 检查是否请求成功
 html_content = response.text
 
