@@ -8,6 +8,7 @@ import socket  #check p3p源 rtp源
 import subprocess #check rtmp源
 
 import json
+from security import safe_command
 
 timestart = datetime.now()
 
@@ -31,7 +32,7 @@ def get_video_resolution(video_path):
     ]
     
     # 运行命令并捕获输出
-    result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    result = safe_command.run(subprocess.run, command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     
     # 解析 JSON 输出
     video_info = json.loads(result.stdout)
