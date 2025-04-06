@@ -574,7 +574,7 @@ beijing_time = utc_time + timedelta(hours=8)
 # 格式化为所需的格式
 formatted_time = beijing_time.strftime("%Y%m%d %H:%M:%S")
 
-about_video1="http://182.40.120.191/test-txdwk.flv.huya.com/src/1524439840-1524439840-6547419257519472640-3049003136-10057-A-0-1.m3u8"
+about_video1="https://vd4.bdstatic.com/mda-pd47d6hs6bdriz7z/sc/cae_h264/1680672162318444423/mda-pd47d6hs6bdriz7z.mp4"
 about_video2="http://182.40.120.171/test-txdwk.flv.huya.com/src/1394575534-1394575534-5989656310331736064-2789274524-10057-A-0-1.m3u8"
 
 version=formatted_time+","+about_video1
