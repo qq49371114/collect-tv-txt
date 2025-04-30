@@ -3,8 +3,8 @@ from urllib.parse import urlparse
 import re #正则
 import os
 from datetime import datetime, timedelta, timezone
-import random
 import opencc #简繁转换
+import secrets
 
 #简繁转换
 def traditional_to_simplified(text: str) -> str:
@@ -353,7 +353,7 @@ def get_random_user_agent():
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36",
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36",
     ]
-    return random.choice(USER_AGENTS)
+    return secrets.choice(USER_AGENTS)
 
 def process_url(url):
     try:
@@ -562,7 +562,7 @@ def get_random_url(file_path):
             url = line.strip().split(',')[-1]
             urls.append(url)    
     # 随机返回一个URL
-    return random.choice(urls) if urls else None
+    return secrets.choice(urls) if urls else None
 
 daily_mtv="每日一首,"+get_random_url('assets/今日推荐.txt')
 daily_tv="每日荐影,"+get_random_url('assets/今日推台.txt')
