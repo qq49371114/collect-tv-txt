@@ -7,8 +7,7 @@ from urllib.error import URLError, HTTPError
 
 import cv2
 import requests
-
-import random
+import secrets
 
 def read_txt_to_array(file_name):
     try:
@@ -32,7 +31,7 @@ def get_random_user_agent():
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36",
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36",
     ]
-    return random.choice(USER_AGENTS)
+    return secrets.choice(USER_AGENTS)
 
 # 检测URL是否可访问并记录响应时间
 def check_url(url, timeout=6):
