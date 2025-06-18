@@ -1,5 +1,5 @@
 更新时间,#genre#
-20250617-23-47-07,url
+20250618-23-49-22,url
 
 
 freetv_cctv,#genre#
@@ -65,8 +65,10 @@ CCTV14,https://stream1.freetv.fun/cctv14-49.m3u8
 CCTV14,https://stream1.freetv.fun/cctv14-50.m3u8
 CCTV14,https://stream1.freetv.fun/cctv14-58.m3u8
 CCTV14,https://stream1.freetv.fun/cctv14-6.m3u8
+CCTV14,https://stream1.freetv.fun/cctv14-64.m3u8
 CCTV14,https://stream1.freetv.fun/cctv14-65.m3u8
 CCTV14,https://stream1.freetv.fun/cctv14-69.ctv
+CCTV14,https://stream1.freetv.fun/cctv14shao-er-11.m3u8
 CCTV15,https://stream1.freetv.fun/cctv15-10.m3u8
 CCTV15,https://stream1.freetv.fun/cctv15-20.m3u8
 CCTV15,https://stream1.freetv.fun/cctv15-36.m3u8
@@ -208,7 +210,9 @@ CCTV9,https://stream1.freetv.fun/cctv9-28.ctv
 CCTV9,https://stream1.freetv.fun/cctv9-53.m3u8
 CCTV9,https://stream1.freetv.fun/cctv9-54.m3u8
 CCTV9,https://stream1.freetv.fun/cctv9-68.m3u8
+CCTV9,https://stream1.freetv.fun/cctv9-71.m3u8
 CCTV9,https://stream1.freetv.fun/cctv9-73.m3u8
 CCTV9,https://stream1.freetv.fun/cctv9-75.m3u8
+CCTV9,https://stream1.freetv.fun/cctv9-9.m3u8
 CCTVNews,https://stream1.freetv.fun/cctv-news-1.m3u8
 CCTV风云足球,https://stream1.freetv.fun/cctvfeng-yun-zu-qiu-19.m3u8
