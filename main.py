@@ -789,12 +789,14 @@ generate_playlist_html(filtered_tyss_lines, 'tiyu.html')
 #酒店源自更新#
 hoteltv_lines = [] #CCTV
 #hoteltv_urls = read_txt_to_array('assets/urls-daily.txt')
-hoteltv_urls = [ "https://666.ewwe.gq/kakaxi-1/IPTV/main/ipv4.1.txt" #酒店源
-"https://666.ewwe.gq/qq49371114/iptv_Tianmutnt/main/iptv.txt",
- "https://666.ewwe.gq/lalifeier/IPTV/main/txt%2FCCTV.txt",
-]
+hoteltv_url = "https://666.ewwe.gq/qq49371114/iptv_Tianmutnt/main/iptv.txt"#神源
 
-hoteltv_text = get_http_response(hoteltv_urls)
+#hoteltv_urls = [ "https://666.ewwe.gq/kakaxi-1/IPTV/main/ipv4.1.txt" #酒店源
+#"https://666.ewwe.gq/qq49371114/iptv_Tianmutnt/main/iptv.txt",
+# "https://666.ewwe.gq/lalifeier/IPTV/main/txt%2FCCTV.txt",
+#]
+
+hoteltv_text = get_http_response(hoteltv_url)
 if hoteltv_text:
     print("hotel成功获取内容")
     hoteltv_text = convert_m3u_to_txt(hoteltv_text)
@@ -894,6 +896,7 @@ all_lines =  ["更新时间,#genre#"] +[version]  +[about] +[daily_tv]+[daily_mt
              ["💓专享央视,#genre#"] + read_txt_to_array('专区/♪优质央视.txt') + ['\n'] + \
              ["💓专享卫视,#genre#"] + read_txt_to_array('专区/♪优质卫视.txt') + ['\n'] + \
              ["💓AKTV🚀📶,#genre#"] + aktv_lines + ['\n'] + \
+             ["💓神源收集站🚀📶,#genre#"] + hoteltv_lines + ['\n'] + \
              ["💓港澳台📶,#genre#"] + read_txt_to_array('专区/♪港澳台.txt') + ['\n'] + \
              ["💓台湾台📶,#genre#"] + read_txt_to_array('专区/♪台湾台.txt') + ['\n'] + \
              ["💓咪咕直播,#genre#"] + read_txt_to_array('专区/♪咪咕直播.txt') + ['\n'] + \
@@ -1150,4 +1153,3 @@ print(f"other行数: {other_lines_hj} ")
 #备用1：http://tonkiang.us
 #备用2：https://www.zoomeye.hk,https://www.shodan.io,https://tv.cctv.com/live/
 #备用3：(BlackList检测对象)http,rtmp,p3p,rtp（rtsp，p2p）
-
