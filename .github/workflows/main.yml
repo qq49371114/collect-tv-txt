@@ -44,7 +44,7 @@ jobs:
       run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git add bbxx.txt bbxx.m3u bbxx_lite.txt bbxx_lite.m3u merged_output.txt merged_output.m3u others_output.txt tiyu.html
+          git add bbxx.txt bbxx.m3u bbxx_lite.txt bbxx_lite.m3u merged_output.txt merged_output.m3u  merged_output_simple.txt merged_output_simple.m3u others_output.txt tiyu.html
           git commit -m ":tada:  AutoUpdate $(date +'%Y%m%d')"
 
           current_datetime=$(date +"%Y%m%d_%H%M%S")
