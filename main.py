@@ -806,6 +806,18 @@ else:
     hoteltv_lines = read_txt_to_array('专区/CCTV.txt')
 #AKTV# ["💓AKTV🚀📶,#genre#"] + aktv_lines + ['\n'] + \
 
+#9+9源自更新#
+adulttv_lines = [] #成人源
+adulttv_url = "https://fanmingming.com/txt?url=http://adultiptv.net/chs.m3u"   #成人源
+adulttv_text = get_http_response(adulttv_url)
+if adulttv_text:
+    print("adult成功获取内容")
+    adulttv_text = convert_m3u_to_txt(adulttv_text)
+    adulttv_lines = adulttv_text.strip().split('\n')
+else:
+    print("adult请求失败，从本地获取！")
+    adulttv_lines = read_txt_to_array('主频道/9+9.txt')
+
 #过滤掉特定关键词的行
 #keywords_to_exclude = ["玉玉软件", "榴芒电视","公众号"]
 def filter_lines(lines, exclude_keywords):
@@ -901,7 +913,7 @@ all_lines =  ["更新时间,#genre#"] +[version]  +[about] +[daily_tv]+[daily_mt
              ["💓台湾台📶,#genre#"] + read_txt_to_array('专区/♪台湾台.txt') + ['\n'] + \
              ["💓咪咕直播,#genre#"] + read_txt_to_array('专区/♪咪咕直播.txt') + ['\n'] + \
              ["💓裸眼3D,#genre#"] + read_txt_to_array('主频道/裸眼3D.txt') + ['\n'] + \
-             ["💓9+9成人频道_9527,#genre#"] + read_txt_to_array('主频道/9+9.txt') + ['\n'] + \
+             ["💓9+9成人频道_9527,#genre#"] + adulttv_lines + ['\n'] + \
              ["🏈体育赛事,#genre#"] + normalized_tyss_lines + ['\n'] + \
              ["⚽️SPORTS,#genre#"] + read_txt_to_array('专区/♪sports.txt') + ['\n'] + \
              ["🎞️电影点播,#genre#"] + read_txt_to_array('专区/♪电影点播.txt') + ['\n'] + \
