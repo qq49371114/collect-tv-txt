@@ -788,7 +788,11 @@ generate_playlist_html(filtered_tyss_lines, 'tiyu.html')
 
 #酒店源自更新#
 hoteltv_lines = [] #CCTV
-hoteltv_url = "https://666.ewwe.gq/kakaxi-1/IPTV/main/ipv4.1.txt" #酒店源
+#hoteltv_urls = read_txt_to_array('assets/urls-daily.txt')
+hoteltv_urls = [ "https://666.ewwe.gq/kakaxi-1/IPTV/main/ipv4.1.txt" #酒店源
+"https://666.ewwe.gq/qq49371114/iptv_Tianmutnt/main/iptv.txt",
+ "https://666.ewwe.gq/lalifeier/IPTV/main/txt%2FCCTV.txt",
+]
 
 hoteltv_text = get_http_response(hoteltv_url)
 if hoteltv_text:
@@ -835,7 +839,7 @@ beijing_time = utc_time + timedelta(hours=8)
 formatted_time = beijing_time.strftime("%Y%m%d %H:%M:%S")
 
 about_video1="https://vd4.bdstatic.com/mda-pd47d6hs6bdriz7z/sc/cae_h264/1680672162318444423/mda-pd47d6hs6bdriz7z.mp4"
-about_video2="http://itv.nctv.top:35455/douyu/310926"
+about_video2="https://mursor.ottiptv.cc/douyu/9824094"
 
 version=formatted_time+","+about_video1
 about="🐯关于本源🐯遥遥领先专用,"+about_video2
@@ -890,7 +894,6 @@ all_lines =  ["更新时间,#genre#"] +[version]  +[about] +[daily_tv]+[daily_mt
              ["💓专享央视,#genre#"] + read_txt_to_array('专区/♪优质央视.txt') + ['\n'] + \
              ["💓专享卫视,#genre#"] + read_txt_to_array('专区/♪优质卫视.txt') + ['\n'] + \
              ["💓AKTV🚀📶,#genre#"] + aktv_lines + ['\n'] + \
-             ["💓神源收集站🚀📶,#genre#"] + hoteltv_lines + ['\n'] + \
              ["💓港澳台📶,#genre#"] + read_txt_to_array('专区/♪港澳台.txt') + ['\n'] + \
              ["💓台湾台📶,#genre#"] + read_txt_to_array('专区/♪台湾台.txt') + ['\n'] + \
              ["💓咪咕直播,#genre#"] + read_txt_to_array('专区/♪咪咕直播.txt') + ['\n'] + \
