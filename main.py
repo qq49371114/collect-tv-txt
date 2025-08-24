@@ -798,6 +798,8 @@ def get_random_url(file_path):
     return random.choice(urls) if urls else None
 
 daily_mtv="(百)每日一首,"+get_random_url('assets/今日推荐.txt')
+daily_mtv="每日一首,"+get_random_url('assets/今日推荐.txt')
+daily_tv="每日荐影,"+get_random_url('assets/今日推台.txt')
 
 # 获取当前的 UTC 时间
 utc_time = datetime.now(timezone.utc)
@@ -806,10 +808,12 @@ beijing_time = utc_time + timedelta(hours=8)
 # 格式化为所需的格式
 formatted_time = beijing_time.strftime("%Y%m%d %H:%M:%S")
 
-about_video1="https://gitee.com/kabigo/tv/raw/master/assets/about1080p.mp4"
-about_video2="https://gitlab.com/p2v5/wangtv/-/raw/main/about1080p.mp4"
+about_video1="https://vd4.bdstatic.com/mda-pd47d6hs6bdriz7z/sc/cae_h264/1680672162318444423/mda-pd47d6hs6bdriz7z.mp4"
+about_video2="http://itv.nctv.top:35455/douyu/310926"
+
 version=formatted_time+","+about_video1
-about="关于本源(iptv365.org),"+about_video2
+about="🐯关于本源🐯遥遥领先专用,"+about_video2
+
 
 
 # 增加手工区 202505
@@ -822,7 +826,7 @@ jsu_lines = jsu_lines + read_txt_to_array('手工区/江苏频道.txt')
 
 # 瘦身版
 #              ["💓AKTV🚀📶,#genre#"] + aktv_lines + ['\n'] + \
-all_lines_simple =  ["更新时间,#genre#"] +[version] +[about] +[daily_mtv]+read_txt_to_array('专区/about.txt')+ ['\n'] +\
+all_lines_simple =  ["更新时间,#genre#"] +[version] +[about] +[daily_tv]+[daily_mtv]+read_txt_to_array('专区/about.txt')+ ['\n'] +\
              ["💓专享源🅰️,#genre#"] + read_txt_to_array('专区/♪专享源①.txt') + ['\n'] + \
              ["💓专享源🅱️,#genre#"] + read_txt_to_array('专区/♪专享源②.txt') + ['\n'] + \
              ["💓专享央视,#genre#"] + read_txt_to_array('专区/♪优质央视.txt') + ['\n'] + \
@@ -853,7 +857,7 @@ all_lines_simple =  ["更新时间,#genre#"] +[version] +[about] +[daily_mtv]+re
 # 合并所有对象中的行文本（去重，排序后拼接）
 # ["奥运频道,#genre#"] + sort_data(Olympics_2024_Paris_dictionary,set(correct_name_data(corrections_name,Olympics_2024_Paris_lines))) + ['\n'] + \
 # ["🧨2025春晚🧨,#genre#"] + read_txt_to_array('专区/2025春晚.txt') + ['\n'] + \             
-all_lines =  ["更新时间,#genre#"] +[version]  +[about] +[daily_mtv]+read_txt_to_array('专区/about.txt') + ['\n'] +\
+all_lines =  ["更新时间,#genre#"] +[version]  +[about] +[daily_tv]+[daily_mtv]+read_txt_to_array('专区/about.txt') + ['\n'] +\
              ["💓专享源🅰️,#genre#"] + read_txt_to_array('专区/♪专享源①.txt') + ['\n'] + \
              ["💓专享源🅱️,#genre#"] + read_txt_to_array('专区/♪专享源②.txt') + ['\n'] + \
              ["💓专享央视,#genre#"] + read_txt_to_array('专区/♪优质央视.txt') + ['\n'] + \
@@ -862,6 +866,8 @@ all_lines =  ["更新时间,#genre#"] +[version]  +[about] +[daily_mtv]+read_txt
              ["💓港澳台📶,#genre#"] + read_txt_to_array('专区/♪港澳台.txt') + ['\n'] + \
              ["💓台湾台📶,#genre#"] + read_txt_to_array('专区/♪台湾台.txt') + ['\n'] + \
              ["💓咪咕直播,#genre#"] + read_txt_to_array('专区/♪咪咕直播.txt') + ['\n'] + \
+             ["💓裸眼3D,#genre#"] + read_txt_to_array('主频道/裸眼3D.txt') + ['\n'] + \
+             ["💓9+9成人频道_9527,#genre#"] + read_txt_to_array('主频道/9+9.txt') + ['\n'] + \
              ["🏈体育赛事,#genre#"] + normalized_tyss_lines + ['\n'] + \
              ["⚽️SPORTS,#genre#"] + read_txt_to_array('专区/♪sports.txt') + ['\n'] + \
              ["🎞️电影点播,#genre#"] + read_txt_to_array('专区/♪电影点播.txt') + ['\n'] + \
@@ -1109,4 +1115,5 @@ print(f"other行数: {other_lines_hj} ")
 #备用1：http://tonkiang.us
 #备用2：https://www.zoomeye.hk,https://www.shodan.io,https://tv.cctv.com/live/
 #备用3：(BlackList检测对象)http,rtmp,p3p,rtp（rtsp，p2p）
+
 
