@@ -794,7 +794,7 @@ hoteltv_urls = [ "https://666.ewwe.gq/kakaxi-1/IPTV/main/ipv4.1.txt" #酒店源
  "https://666.ewwe.gq/lalifeier/IPTV/main/txt%2FCCTV.txt",
 ]
 
-hoteltv_text = get_http_response(hoteltv_url)
+hoteltv_text = get_http_response(hoteltv_urls)
 if hoteltv_text:
     print("hotel成功获取内容")
     hoteltv_text = convert_m3u_to_txt(hoteltv_text)
@@ -1150,3 +1150,4 @@ print(f"other行数: {other_lines_hj} ")
 #备用1：http://tonkiang.us
 #备用2：https://www.zoomeye.hk,https://www.shodan.io,https://tv.cctv.com/live/
 #备用3：(BlackList检测对象)http,rtmp,p3p,rtp（rtsp，p2p）
+
