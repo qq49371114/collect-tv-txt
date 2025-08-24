@@ -795,7 +795,6 @@ hoteltv_url = "https://666.ewwe.gq/qq49371114/iptv_Tianmutnt/main/iptv.txt"#神�
 #"https://666.ewwe.gq/qq49371114/iptv_Tianmutnt/main/iptv.txt",
 # "https://666.ewwe.gq/lalifeier/IPTV/main/txt%2FCCTV.txt",
 #]
-
 hoteltv_text = get_http_response(hoteltv_url)
 if hoteltv_text:
     print("hotel成功获取内容")
@@ -805,6 +804,18 @@ else:
     print("hotel请求失败，从本地获取！")
     hoteltv_lines = read_txt_to_array('专区/CCTV.txt')
 #AKTV# ["💓AKTV🚀📶,#genre#"] + aktv_lines + ['\n'] + \
+
+#过滤掉特定关键词的行
+#keywords_to_exclude = ["玉玉软件", "榴芒电视","公众号"]
+def filter_lines(lines, exclude_keywords):
+    """
+    过滤掉包含任一关键字的行
+    :param lines: 原始字符串数组
+    :param exclude_keywords: 需要剔除的关键词列表
+    :return: 过滤后的新列表
+    """
+    return [line for line in lines if not any(keyword in line for keyword in exclude_keywords)]
+
 
 #9+9源自更新#
 adulttv_lines = [] #成人源
@@ -818,8 +829,6 @@ else:
     print("adult请求失败，从本地获取！")
     adulttv_lines = read_txt_to_array('主频道/9+9.txt')
 
-#过滤掉特定关键词的行
-#keywords_to_exclude = ["玉玉软件", "榴芒电视","公众号"]
 def filter_lines(lines, exclude_keywords):
     """
     过滤掉包含任一关键字的行
@@ -828,6 +837,7 @@ def filter_lines(lines, exclude_keywords):
     :return: 过滤后的新列表
     """
     return [line for line in lines if not any(keyword in line for keyword in exclude_keywords)]
+
 
 
 # 随机取得URL
