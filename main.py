@@ -786,6 +786,32 @@ keywords_to_exclude_tiyu = ["玉玉软件", "榴芒电视","公众号","咪视�
 filtered_tyss_lines = filter_lines(normalized_tyss_lines, keywords_to_exclude_tiyu)
 generate_playlist_html(filtered_tyss_lines, 'tiyu.html')
 
+#酒店源自更新#
+hoteltv_lines = [] #CCTV
+hoteltv_url = "https://aktv.space/live.m3u" #酒店源
+
+hoteltv_text = get_http_response(hoteltv_url)
+if hoteltv_text:
+    print("hotel成功获取内容")
+    hoteltv_text = convert_m3u_to_txt(hoteltv_text)
+    hoteltv_lines = hoteltv_text.strip().split('\n')
+else:
+    print("hotel请求失败，从本地获取！")
+    hoteltv_lines = read_txt_to_array('专区/CCTV.txt')
+#AKTV# ["💓AKTV🚀📶,#genre#"] + aktv_lines + ['\n'] + \
+
+#过滤掉特定关键词的行
+#keywords_to_exclude = ["玉玉软件", "榴芒电视","公众号"]
+def filter_lines(lines, exclude_keywords):
+    """
+    过滤掉包含任一关键字的行
+    :param lines: 原始字符串数组
+    :param exclude_keywords: 需要剔除的关键词列表
+    :return: 过滤后的新列表
+    """
+    return [line for line in lines if not any(keyword in line for keyword in exclude_keywords)]
+
+
 # 随机取得URL
 def get_random_url(file_path):
     urls = []
@@ -832,6 +858,7 @@ all_lines_simple =  ["更新时间,#genre#"] +[version] +[about] +[daily_tv]+[da
              ["💓专享央视,#genre#"] + read_txt_to_array('专区/♪优质央视.txt') + ['\n'] + \
              ["💓专享卫视,#genre#"] + read_txt_to_array('专区/♪优质卫视.txt') + ['\n'] + \
              ["💓AKTV🚀📶,#genre#"] + aktv_lines + ['\n'] + \
+             ["💓神源收集站🚀📶,#genre#"] + hoteltv_lines + ['\n'] + \
              ["💓港澳台📶,#genre#"] + read_txt_to_array('专区/♪港澳台.txt') + ['\n'] + \
              ["💓台湾台📶,#genre#"] + read_txt_to_array('专区/♪台湾台.txt') + ['\n'] + \
              ["💓咪咕直播,#genre#"] + read_txt_to_array('专区/♪咪咕直播.txt') + ['\n'] + \
@@ -946,10 +973,6 @@ others_file = "others_output.txt"
 # NEW将合并后的文本写入文件
 new_output_file = "bbxx.txt"
 new_output_file_simple = "bbxx_lite.txt"
-
-# NEW将合并后的文本写入文件
-new_output_file = "merged_output.txt"
-new_output_file_simple = "merged_output_simple.txt"
 
 # # custom定制
 # output_file_custom_zhang = "custom/zhang.txt"
@@ -1119,6 +1142,5 @@ print(f"other行数: {other_lines_hj} ")
 #备用1：http://tonkiang.us
 #备用2：https://www.zoomeye.hk,https://www.shodan.io,https://tv.cctv.com/live/
 #备用3：(BlackList检测对象)http,rtmp,p3p,rtp（rtsp，p2p）
-
 
 
