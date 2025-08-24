@@ -947,6 +947,10 @@ others_file = "others_output.txt"
 new_output_file = "bbxx.txt"
 new_output_file_simple = "bbxx_lite.txt"
 
+# NEW将合并后的文本写入文件
+new_output_file = "merged_output.txt"
+new_output_file_simple = "merged_output_simple.txt"
+
 # # custom定制
 # output_file_custom_zhang = "custom/zhang.txt"
 
@@ -1115,5 +1119,6 @@ print(f"other行数: {other_lines_hj} ")
 #备用1：http://tonkiang.us
 #备用2：https://www.zoomeye.hk,https://www.shodan.io,https://tv.cctv.com/live/
 #备用3：(BlackList检测对象)http,rtmp,p3p,rtp（rtsp，p2p）
+
 
 
