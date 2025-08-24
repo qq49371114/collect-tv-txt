@@ -890,6 +890,7 @@ all_lines =  ["更新时间,#genre#"] +[version]  +[about] +[daily_tv]+[daily_mt
              ["💓专享央视,#genre#"] + read_txt_to_array('专区/♪优质央视.txt') + ['\n'] + \
              ["💓专享卫视,#genre#"] + read_txt_to_array('专区/♪优质卫视.txt') + ['\n'] + \
              ["💓AKTV🚀📶,#genre#"] + aktv_lines + ['\n'] + \
+             ["💓神源收集站🚀📶,#genre#"] + hoteltv_lines + ['\n'] + \
              ["💓港澳台📶,#genre#"] + read_txt_to_array('专区/♪港澳台.txt') + ['\n'] + \
              ["💓台湾台📶,#genre#"] + read_txt_to_array('专区/♪台湾台.txt') + ['\n'] + \
              ["💓咪咕直播,#genre#"] + read_txt_to_array('专区/♪咪咕直播.txt') + ['\n'] + \
@@ -973,6 +974,10 @@ others_file = "others_output.txt"
 # NEW将合并后的文本写入文件
 new_output_file = "bbxx.txt"
 new_output_file_simple = "bbxx_lite.txt"
+
+# NEW将合并后的文本写入文件
+new_output_file = "live.txt"
+new_output_file_simple = "live_lite.txt"
 
 # # custom定制
 # output_file_custom_zhang = "custom/zhang.txt"
@@ -1142,5 +1147,3 @@ print(f"other行数: {other_lines_hj} ")
 #备用1：http://tonkiang.us
 #备用2：https://www.zoomeye.hk,https://www.shodan.io,https://tv.cctv.com/live/
 #备用3：(BlackList检测对象)http,rtmp,p3p,rtp（rtsp，p2p）
-
-
