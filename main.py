@@ -788,7 +788,7 @@ generate_playlist_html(filtered_tyss_lines, 'tiyu.html')
 
 #酒店源自更新#
 hoteltv_lines = [] #CCTV
-hoteltv_url = "https://aktv.space/live.m3u" #酒店源
+hoteltv_url = "https://666.ewwe.gq/kakaxi-1/IPTV/main/ipv4.1.txt" #酒店源
 
 hoteltv_text = get_http_response(hoteltv_url)
 if hoteltv_text:
