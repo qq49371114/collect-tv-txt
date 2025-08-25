@@ -5,3 +5,12 @@ https://666.ewwe.gq/lalifeier/IPTV/main/m3u/Live.m3u
 https://666.ewwe.gq/hujingguang/ChinaIPTV/main/cnTV_AutoUpdate.m3u8
 https://666.ewwe.gq/qq49371114/iptv_Tianmutnt/main/iptv.m3u
 https://666.ewwe.gq/qq49371114/CHINA-IPTV/main/TV/live.txt
+https://666.ewwe.gq/YueChan/Live/main/APTV.m3u
+https://666.ewwe.gq/YueChan/Live/main/IPTV.m3u
+https://666.ewwe.gq/ssili126/tv/main/itvlist.txt
+https://666.ewwe.gq/Guovin/iptv-api/gd/output/result.m3u
+https://666.ewwe.gq/HerbertHe/iptv-sources/gh-pages/all.m3u
+https://666.ewwe.gq/vbskycn/iptv/blob/master/tv/jxyd.m3u/vbskycn/iptv/master/tv/jxyd.m3u
+https://github.com/lalifeier/IPTV/blob/main/txt/hotel/%E5%85%A8%E5%9B%BD.txt
+https://666.ewwe.gq/zwc456baby/iptv_alive/master/live.m3u
+https://666.ewwe.gq/lalifeier/IPTV/main/txt/IPTV.txt
